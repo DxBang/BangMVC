@@ -1,0 +1,340 @@
+fieldset {
+	margin: 0 0 1em 0;
+	position:relative;
+	padding: .5rem;
+}
+fieldset footer {
+	text-align: right;
+	padding: 0 .5rem;
+}
+fieldset legend {
+	text-align: right;
+	padding: .25em 1rem;
+	margin: 0 0 -.5rem;
+}
+
+textarea,
+select,
+button,
+input[type=text],
+input[type=email],
+input[type=number],
+input[type=password],
+input[type=date],
+input[type=search],
+input[type=reset],
+input[type=button],
+input[type=submit],
+.bttn input[type=radio]+label,
+.bttn input[type=checkbox]+label,
+.bttn input[type=file]+label,
+.bttn input[type=file]+label+output {
+	padding: .25rem .5rem;
+	outline: none;
+	/* border: 1px solid #000; */
+}
+
+button,
+input[type=reset],
+input[type=button],
+input[type=submit],
+.bttns a,
+a.bttn,
+.bttn input[type=radio]+label,
+.bttn input[type=checkbox]+label,
+.bttn input[type=file]+label {
+	cursor: pointer;
+	padding: .25rem 1rem;
+	display: inline-block;
+	white-space: pre;
+	text-align: center;
+	line-height: 1.5rem;
+
+}
+.bttn input[type=file]+label {
+	float:left;
+}
+.bttn input[type=file]+label+output {
+	display: block;
+}
+.smll input,
+.smll input[type=radio]+label,
+.smll input[type=checkbox]+label,
+.smll input[type=file]+label {
+	padding: .1rem .5rem;
+	font-size: .8rem;
+	line-height: 1.1rem;
+}
+.lrg input {
+
+}
+optgroup {
+	font-style: italic;
+}
+option,
+optgroup option {
+	font-style: normal;
+	display: inline-block;
+	padding: .25rem .5rem;
+}
+
+textarea,
+select,
+input[type=text],
+input[type=tel],
+input[type=url],
+input[type=email],
+input[type=number],
+input[type=password],
+input[type=range],
+input[type=date],
+input[type=time],
+input[type=search] {
+	width: 100%;
+	max-width: 60rem;
+	min-width: 5rem;
+}
+textarea,
+select[multiple] {
+	height: 10rem;
+	overflow: auto;
+	resize: vertical;
+}
+
+.bttn input[type=radio],
+.bttn input[type=checkbox],
+.bttn input[type=file] {
+	position: absolute;
+	visibility: hidden;
+	top: 0;
+	right: 0;
+}
+
+
+/**
+	FORM bttn
+**/
+button,
+option,
+input[type=reset],
+input[type=button],
+input[type=submit],
+.bttn input[type=file]+label,
+.bttn input[type=radio]+label,
+.bttn input[type=checkbox]+label {
+	background-image: linear-gradient(to bottom,rgba(255,255,255,.1),rgba(0,0,0,.1));
+	/*
+	background-image: -o-linear-gradient(top,rgba(255,255,255,.1),rgba(0,0,0,.1));
+	background-image: -ms-linear-gradient(top,rgba(255,255,255,.1),rgba(0,0,0,.1));
+	background-image: -moz-linear-gradient(top,rgba(255,255,255,.1),rgba(0,0,0,.1));
+	background-image: -webkit-linear-gradient(top,rgba(255,255,255,.1),rgba(0,0,0,.1));
+	*/
+	box-shadow: 0 0 0 0 rgba(0,0,0,.1);
+	z-index: 9996;
+}
+/**
+	FORM bttn FOCUS
+**/
+button:focus,
+option:focus,
+input[type=reset]:focus,
+input[type=button]:focus,
+input[type=submit]:focus,
+.bttn input[type=file]+label:focus,
+.bttn input[type=radio]+label:focus,
+.bttn input[type=checkbox]+label:focus {
+	background-image: linear-gradient(to bottom,rgba(255,255,255,.2),rgba(0,0,0,.2));
+	/*
+	background-image: -o-linear-gradient(top,rgba(255,255,255,.2),rgba(0,0,0,.2));
+	background-image: -ms-linear-gradient(top,rgba(255,255,255,.2),rgba(0,0,0,.2));
+	background-image: -moz-linear-gradient(top,rgba(255,255,255,.2),rgba(0,0,0,.2));
+	background-image: -webkit-linear-gradient(top,rgba(255,255,255,.2),rgba(0,0,0,.2));
+	*/
+	box-shadow: 0 0 5px 0 rgba(255,255,255,.4),inset 0 0 1px 0 rgba(0,0,0,.3);
+	z-index: 9998;
+}
+/**
+	FORM bttn HOVER
+**/
+button:hover,
+option:hover,
+input[type=reset]:hover,
+input[type=button]:hover,
+input[type=submit]:hover,
+.bttn input[type=file]+label:hover,
+.bttn input[type=radio]+label:hover,
+.bttn input[type=checkbox]+label:hover {
+	background-image: linear-gradient(to bottom,rgba(255,255,255,.3),rgba(0,0,0,.3));
+	/*
+	background-image: -o-linear-gradient(top,rgba(255,255,255,.3),rgba(0,0,0,.3));
+	background-image: -ms-linear-gradient(top,rgba(255,255,255,.3),rgba(0,0,0,.3));
+	background-image: -moz-linear-gradient(top,rgba(255,255,255,.3),rgba(0,0,0,.3));
+	background-image: -webkit-linear-gradient(top,rgba(255,255,255,.3),rgba(0,0,0,.3));
+	*/
+	box-shadow: 0 0 5px 0 rgba(0,0,0,.3);
+	z-index: 9997;
+}
+/**
+	FORM bttn ACTIVE
+**/
+button:active,
+option:active,
+input[type=reset]:active,
+input[type=button]:active,
+input[type=submit]:active,
+.bttn input[type=file]+label:active,
+.bttn input[type=radio]+label:active,
+.bttn input[type=checkbox]+label:active {
+	background-image: linear-gradient(to bottom,rgba(0,0,0,.3),rgba(255,255,255,.3));
+	/*
+	background-image: -o-linear-gradient(top,rgba(0,0,0,.3),rgba(255,255,255,.3));
+	background-image: -ms-linear-gradient(top,rgba(0,0,0,.3),rgba(255,255,255,.3));
+	background-image: -moz-linear-gradient(top,rgba(0,0,0,.3),rgba(255,255,255,.3));
+	background-image: -webkit-linear-gradient(top,rgba(0,0,0,.3),rgba(255,255,255,.3));
+	*/
+	box-shadow: 0 0 5px 0 rgba(0,0,0,.3),inset 0 0 1px 0 rgba(0,0,0,.3);
+	z-index: 9999;
+}
+
+input[type=range] {
+	height: .5rem;
+	margin: .3rem;
+	-webkit-appearance: none;
+	width: 100%;
+	background: transparent;
+	border: none;
+	background-image: linear-gradient(to right, rgba(249,77,90,0), rgba(249,77,90,1));
+	/*
+	background: -o-linear-gradient(left,rgba(249,77,90,0),rgba(249,77,90,1));
+	background: -ms-linear-gradient(left,rgba(249,77,90,0),rgba(249,77,90,1));
+	background: -moz-linear-gradient(left,rgba(249,77,90,0),rgba(249,77,90,1));
+	background: -webkit-linear-gradient(left,rgba(249,77,90,0),rgba(249,77,90,1));
+	*/
+}
+
+input[type=range]::-webkit-slider-thumb {
+	-webkit-appearance: none;
+}
+
+input[type=range]::-ms-track {
+	width: 100%;
+	cursor: pointer;
+	background: transparent; 
+	border-color: transparent;
+	color: transparent;
+}
+
+input[type=range]::-webkit-slider-thumb {
+	-webkit-appearance: none;
+	border: 1px solid #666;
+	height: 1.5rem;
+	width: 1.5rem;
+	border-radius: 100%;
+	background: #444;
+	cursor: pointer;
+	margin-top: 0;
+}
+
+input[type=range]::-ms-thumb {
+	border: 1px solid #666;
+	height: 1.5rem;
+	width: 1.5rem;
+	border-radius: 100%;
+	background: #444;
+	cursor: pointer;
+	margin-top: 0;
+}
+
+input ~ output {
+	box-shadow: 1px 1px 1px #000000, 0px 0px 1px #111;
+	border: 1px solid #111;
+	border-radius: 3px;
+	background: #000;
+}
+.number {
+	display: inline-block;
+	text-align: right;
+}
+.kmph:after {
+	content: 'kmph';
+}
+.km:after {
+	content: 'km';
+}
+.m:after {
+	content: 'm';
+}
+.cm:after {
+	content: 'cm';
+}
+.mm:after {
+	content: 'mm';
+}
+.kw:after {
+	content: 'kw';
+}
+.hp:after {
+	content: 'hp';
+}
+.nm:after {
+	content: 'n-m';
+}
+.mph:after {
+	content: 'mph';
+}
+.mi:after {
+	content: 'mi';
+}
+.ft:after {
+	content: '\'';
+}
+.in:after {
+	content: '"';
+}
+.kg:after {
+	content: 'kg';
+}
+.g:after {
+	content: 'g';
+}
+.kgfmm:after {
+	content: 'kgf/mm';
+}
+.lbs:after {
+	content: 'lbs';
+}
+.lbsin:after {
+	content: 'lbs/in';
+}
+.psi:after {
+	content: 'psi';
+}
+.bar:after {
+	content: 'bar';
+}
+.percent:after {
+	content: '%';
+}
+.degree:after {
+	content: '°';
+}
+
+:disabled::-webkit-input-placeholder {
+	color: rgba(0,0,0,.3) !important;
+}
+:disabled::-moz-placeholder {
+	color: rgba(0,0,0,.3) !important;
+}
+:disabled:-moz-placeholder {
+	color: rgba(0,0,0,.3) !important;
+}
+:disabled:-ms-input-placeholder {
+	color: rgba(0,0,0,.3) !important;
+}
+:disabled,
+:disabled+label {
+	-opacity: .1;
+	background: rgba(0,0,0,.1) !important;
+	color: rgba(0,0,0,.3) !important;
+	border-color: rgba(0,0,0,.2) !important;
+}

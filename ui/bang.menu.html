@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html>
+<head><title>Bang Menu</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+<style>
+html {
+	font-size: 14px;
+}
+* {
+	box-sizing: border-box;
+}
+body {
+	background: #444;
+	color: #ccc;
+	font-family: sans-serif;
+}
+
+
+* {
+	--outline: 1px dotted rgba(255,0,0,.5);
+}
+
+
+.bmenu {
+	font-size: 1.5rem;
+	line-height: normal;
+	position: fixed;
+	top:0;
+	left:0;
+	right:0;
+	display: block;
+	--display: grid; /* this fixes shit on last itrem */
+	max-height: calc(100% - 2rem);
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	background: transparent;
+	color: #000;
+}
+.bmenu:after {
+	content: " ";
+	clear: both;
+	display: table;
+}
+
+.bmenu:hover {
+	z-index: 9999999;
+}
+.bmenu input[type=checkbox] {
+	position: fixed;
+	left: -1000%;
+	visibility: hidden;
+}
+.bmenu a {
+	text-decoration: none;
+	border-bottom: none !important;
+	display: block;
+	float: left;
+	width: 100%;
+}
+.bmenu ul {
+	list-style: none;
+}
+.bmenu ul,
+.bmenu li {
+	padding: 0;
+	margin: 0;
+	position: relative;
+	clear: both;
+}
+.bmenu label {
+	cursor: pointer;
+	text-align: center;
+}
+.bmenu label.main {
+	position: fixed;
+	top: .5rem;
+	right: 1rem;
+	width: 3rem;
+	height: 3rem;
+	z-index: 99999999;
+}
+.bmenu label.sub {
+	display: block;
+	position: absolute;
+	height: 1.71rem;
+	width: 3rem;
+	right: 0;
+	z-index: 999999;
+	background: #eee;
+}
+.bmenu label>i {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	transition: color .2s ease-in-out, text-shadow .2s ease-in-out;
+}
+
+.bmenu label.main>i {
+	font-size: 3rem;
+}
+
+.bmenu ul.main {
+	padding: 3rem 1rem 2rem;
+	background: #fff;
+	transition: height .2s ease-in-out;
+}
+
+.bmenu li.has>label>i {
+	font-size: 1.71rem;
+	color: #000;
+}
+.bmenu ul.sub {
+	margin-left: 1rem;
+}
+.bmenu i.fa { display: none; }
+.bmenu i.material-icons { --display: none; }
+
+.bmenu a:hover {
+	background: #78d5f2;
+}
+
+.bmenu input[type=checkbox]:checked + label>i.on,
+.bmenu input[type=checkbox]:not(:checked) + label i.off {
+	color: transparent;
+}
+.bmenu input[type=checkbox]:checked + label>i.off
+.bmenu input[type=checkbox]:not(:checked) + label i.on {
+	color: #000;
+}
+.bmenu input[type=checkbox]:checked + label:hover i.off,
+.bmenu input[type=checkbox]:not(:checked) + label:hover i.on {
+	text-shadow: 1px 1px 5px rgba(0,0,0,.5);
+}
+.bmenu input[type=checkbox] ~ ul {
+	display: none;
+	height: auto;
+	--overflow: hidden;
+}
+.bmenu input[type=checkbox]:not(:checked) ~ ul {
+	display: none;
+}
+.bmenu input[type=checkbox]:checked ~ ul {
+	display: block;
+}
+.bmenu input[type=checkbox]:checked + label,
+.bmenu input[type=checkbox]:checked ~ ul {
+	color: #000;
+}
+.bmenu li.active {
+	font-weight: 700;
+}
+
+@media (min-width: 900px) {
+	.bmenu {
+		position: relative;
+		font-size: 1rem;
+		margin-bottom: 1rem;
+		overflow: initial;
+		margin: 0 auto;
+		width: max-content;
+		max-width: calc(100% - 2rem);
+
+	}
+	.bmenu label.main {
+		display: none;
+	}
+	.bmenu ul.main,
+	.bmenu input[type=checkbox] ~ ul.main {
+		display: block;
+		padding: 0;
+		margin: 0 auto;
+	}
+	.bmenu ul.main>li {
+		float: none;
+		display: inline-block;
+		position: static;
+		clear: none;
+		margin: 0 .1rem;
+	}
+	.bmenu ul.main>li>a {
+		float: none;
+		padding: .5rem 1rem;
+	}
+	.bmenu label.sub {
+		display: none;
+	}
+	.bmenu ul.sub {
+		background: #fff;
+		margin-left: 0;
+		position: absolute;
+		box-shadow: .1rem .3rem .6rem rgba(0,0,0,.5);
+		width: 10rem;
+	}
+	.bmenu ul.sub>li.has {
+
+	}
+	.bmenu ul.sub>li>ul.sub {
+		margin-left: 10rem;
+	}
+	.bmenu ul.sub.left {
+		margin-left: -5rem;
+	}
+	.bmenu ul.sub>li>ul.sub.left {
+		margin-left: -10rem;
+	}
+	.bmenu ul.sub>li>a {
+		padding: .5rem 1rem;
+	}
+	.bmenu li.has:hover {
+		background: #78d5f2;
+	}
+	.bmenu li.has:hover>ul,
+	.bmenu li.has>a:hover ~ ul {
+		display: block;
+	}
+	.bmenu li.image>a {
+		padding: 0 .1rem !important;
+		border: none;
+	}
+	.bmenu li.image>a:hover {
+		background: transparent;
+	}
+	.bmenu li.image>a>img {
+		margin: -.12rem 0;
+		height: 1rem;
+		width: auto;
+	}
+}
+
+@media (min-width: 1200px) {
+	.bmenu {
+		font-size: 1.2rem;
+	}
+}
+
+
+</style>
+</head>
+
+<body>
+
+<nav class="bmenu">
+	<input type="checkbox" id="bngmn_main_menu">
+	<label for="bngmn_main_menu" class="main"><i class="on fa fa-bars"></i><i class="off fa fa-times"></i><i class="on material-icons">menu</i><i class="off material-icons">close</i></label>
+	<ul class="main">
+		<li class="active"><a href="/menu/?<?= time(); ?>" title="this is main menu">Main</a></li>
+		<li><a href="#m1" title="this is menu one">Menu 1</a></li>
+		<li class="has"><a href="#m2">Main 2</a>
+			<input type="checkbox" id="bngmn_m2">
+			<label for="bngmn_m2" class="sub"><i class="on fa fa-plus"></i><i class="off fa fa-minus"></i><i class="on material-icons">add</i><i class="off material-icons">remove</i></label>
+			<ul class="sub">
+				<li><a href="#m2s1">M2 S1</a></li>
+				<li class="has"><a href="#m2s2">M2 S2</a>
+					<input type="checkbox" id="bngmn_m2s2">
+					<label for="bngmn_m2s2" class="sub"><i class="on fa fa-plus"></i><i class="off fa fa-minus"></i><i class="on material-icons">add</i><i class="off material-icons">remove</i></label>
+					<ul class="sub">
+						<li><a href="#m2s2s1">M2 S2S1</a></li>
+						<li><a href="#m2s2s2">M2 S2S2</a></li>
+						<li><a href="#m2s2s3">M2 S2S3</a></li>
+					</ul>
+				</li>
+				<li class="has"><a href="#m2s2">M2 S3</a>
+					<input type="checkbox" id="bngmn_m2s3">
+					<label for="bngmn_m2s3" class="sub"><i class="on fa fa-plus"></i><i class="off fa fa-minus"></i><i class="on material-icons">add</i><i class="off material-icons">remove</i></label>
+					<ul class="sub">
+						<li><a href="#m2s3s1">M2 S3S1</a></li>
+						<li><a href="#m2s3s2">M2 S3S2</a></li>
+						<li><a href="#m2s3s3">M2 S3S3</a></li>
+					</ul>
+				</li>
+				<li><a href="#m2s4">M2 S4</a></li>
+			</ul>
+		</li>
+		<li><a href="#m4/">Main 4</a></li>
+		<li class="has"><a href="#m5">Main 5</a>
+			<input type="checkbox" id="bngmn_m5">
+			<label for="bngmn_m5" class="sub"><i class="on fa fa-plus"></i><i class="off fa fa-minus"></i><i class="on material-icons">add</i><i class="off material-icons">remove</i></label>
+			<ul class="sub">
+				<li><a href="#m5s1">M5 S1</a></li>
+				<li class="has"><a href="#m5s2">M5 S2</a>
+					<input type="checkbox" id="bngmn_m5s2">
+					<label for="bngmn_m5s2" class="sub left"><i class="on fa fa-plus"></i><i class="off fa fa-minus"></i><i class="on material-icons">add</i><i class="off material-icons">remove</i></label>
+					<ul class="sub left">
+						<li><a href="#m5s2s1">M5 S2S1</a></li>
+						<li><a href="#m5s2s2">M5 S2S2</a></li>
+						<li><a href="#m5s2s3">M5 S2S3</a></li>
+					</ul>
+				</li>
+				<li><a href="#m5s3">M5 S3</a></li>
+				<li><a href="#m5s4">M5 S4</a></li>
+			</ul>
+		</li>
+		<li><a href="#m6">Main 6</a></li>
+		<li class="has"><a href="#m7">Main 7</a>
+			<input type="checkbox" id="bngmn_m7">
+			<label for="bngmn_m7" class="sub left"><i class="on fa fa-plus"></i><i class="off fa fa-minus"></i><i class="on material-icons">add</i><i class="off material-icons">remove</i></label>
+			<ul class="sub left">
+				<li><a href="#m7s1">M7 S1</a></li>
+				<li class="has"><a href="#m7s2">M7 S2</a>
+					<input type="checkbox" id="bngmn_m7s2">
+					<label for="bngmn_m7s2" class="sub left"><i class="on fa fa-plus"></i><i class="off fa fa-minus"></i><i class="on material-icons">add</i><i class="off material-icons">remove</i></label>
+					<ul class="sub left">
+						<li><a href="#m7s2s1">M7 S2S1</a></li>
+						<li><a href="#m7s2s2">M7 S2S2</a></li>
+						<li><a href="#m7s2s3">M7 S2S3</a></li>
+					</ul>
+				</li>
+				<li><a href="#m7s3">M7 S3</a></li>
+				<li><a href="#m7s4">M7 S4</a></li>
+			</ul>
+		</li>
+		<li class="image"><a href="#m8" title="hover over for title"><img src="https://superkredit.net/wp-content/uploads/2018/07/iconbig-e1532430511841.png"/></a></li>
+		<li><a href="#m9">Main 9</a></li>
+	</ul>
+</nav>
+
+
+
+<header>
+	<h2><a href="/menu/?<?= time(); ?>">Bang Menu</a></h2>
+</header>
+
+<article>
+	<header>Bang Menu, Pure CSS</header>
+</article>
+
+</body>
+</html>

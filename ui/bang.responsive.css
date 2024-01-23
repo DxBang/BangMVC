@@ -1,0 +1,92 @@
+.resize .row [class*="col"],
+.resize .viewport {
+	transition:width .5s ease-in-out;
+}
+
+.resize .row [class*="col"] {
+	transition: margin .5s ease-in-out,
+		padding .5s ease-in-out;
+}
+
+@media (max-width: 80rem) {
+	.row dl {
+		--padding-bottom: 1rem;
+	}
+	.row dt,
+	.row dd {
+		float:none;
+		padding: 0;
+	}
+	.row dt {
+		width: auto;
+		text-align: left;
+	}
+	.row dd {
+		margin: 0;
+	}
+	.row dd+dt {
+		--margin-top: 1rem;
+	}
+	.gallery .sizer,
+	.gallery .squa,
+	.gallery .vert,
+	.gallery .hori,
+	.gallery .hori.wide {
+		width: 33.333% !important;
+	}
+}
+
+@media (max-width: 50rem) {
+	.viewport {
+		width: 100%;
+		padding: .25rem;
+	}
+	.box {
+		margin-bottom: 3rem;
+		max-height: none;
+	}
+	.row {
+		margin-bottom: 1rem;
+	}
+	dl {
+		padding-bottom: 1rem;
+	}
+	dt,dd {
+		float:none;
+		padding: 0;
+	}
+	dt {
+		width: auto;
+		text-align: left;
+	}
+	dd {
+		margin: 0;
+	}
+	dd+dt {
+		margin-top: 1rem;
+	}
+	.row [class*="col"] { 
+		margin: 0;
+		padding: 0 .5rem;
+		width: 100% !important; 
+	}
+	.gallery .sizer,
+	.gallery .squa,
+	.gallery .vert,
+	.gallery .hori,
+	.gallery .hori.wide {
+		width: 100% !important;
+	}
+	.gallery .squa,
+	.gallery .vert,
+	.gallery .hori {
+		height: 15rem !important;
+	}
+	.rtl,
+	.right,
+	.center {
+		text-align: left;
+		direction: ltr;
+	}
+}
+

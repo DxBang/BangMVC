@@ -1,0 +1,35 @@
+.row {
+	clear: right;
+	padding: 0;
+	margin: 0;
+}
+.row:before,
+.row:after {
+	content: "";
+	display: table;
+}
+.row:after {
+	clear: both;
+}
+.row>[class*="col"] {
+	display: block;
+	float: left;
+	margin: 0 0 0 1%;
+	overflow: hidden;
+}
+.row>[class*="col"]:first-child {
+	margin: 0;
+}
+.col0 { width: 3.213% }
+.col1 { width: 7.416% }
+.col2 { width: 15.833% }
+.col3 { width: 24.250% }
+.col4 { width: 32.666% }
+.col5 { width: 41.083% }
+.col6 { width: 49.500% }
+.col7 { width: 57.917% }
+.col8 { width: 66.334% }
+.col9 { width: 74.750% }
+.col10 { width: 83.167% }
+.col11 { width: 91.584% }
+.col12 { width: 100% }

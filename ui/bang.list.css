@@ -1,0 +1,63 @@
+dl {
+	padding: .5rem;
+}
+dl dl {
+	padding: 0;
+	margin: 0;
+}
+dl:before,
+dl:after {
+	content: "";
+	display: table;
+}
+dl:after {
+	clear: both;
+}
+dt,
+dd {
+	display: block;
+	padding: .1em .25em;
+	line-height: 1rem;
+	min-height: 1.5rem;
+	overflow: auto;
+}
+
+dt {
+	float: left;
+	clear: left;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	font-weight: bolder;
+	max-height: 2rem;
+}
+
+dd {
+	text-align: justify;
+}
+dd img {
+	display: block;
+	max-width: 100%;
+	height: auto;
+}
+
+.form dt {
+	width: 6rem;
+	text-align: right;
+}
+.form dd {
+	margin-left: 1rem;
+}
+
+
+dt.nodd {
+	float:none;
+}
+dl.list dt,
+dl.list dd {
+	float: none;
+	clear: none;
+	text-align: left;
+}
+dl.list dd {
+	margin-left: 2rem;
+}

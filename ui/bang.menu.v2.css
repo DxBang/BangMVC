@@ -1,0 +1,254 @@
+.menu,
+.menu a {
+	box-sizing: border-box;
+	font-weight: 300;
+}
+.menu {
+	font-size: 1.5rem;
+	line-height: normal;
+	position: fixed;
+	top:0;
+	left:0;
+	right:0;
+	display: block;
+	max-height: calc(100% - 1rem);
+	user-select: none;
+	background: transparent;
+}
+
+.menu ul:after {
+	content: " ";
+	clear: both;
+	display: table;
+}
+
+.menu:hover {
+	z-index: 9999999;
+}
+.menu input[type=checkbox] {
+	position: fixed;
+	left: -1000%;
+	visibility: hidden;
+}
+.menu a {
+	text-decoration: none;
+	display: block;
+	float: left;
+	width: 100%;
+	color: inherit;
+}
+.menu ul {
+	list-style: none;
+}
+.menu ul,
+.menu li {
+	padding: 0;
+	margin: 0;
+	position: relative;
+	clear: both;
+	display: grid;
+}
+.menu label {
+	cursor: pointer;
+	text-align: center;
+}
+.menu label.main {
+	position: fixed;
+	top: .5rem;
+	right: 1rem;
+	width: 3rem;
+	height: 3rem;
+	z-index: 99999999;
+}
+.menu label.sub {
+	display: block;
+	position: absolute;
+	height: 1.75rem;
+	height: calc(100%);
+	width: 3rem;
+	right: 0;
+	z-index: 999999;
+}
+.menu label>i {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	transition: color .2s ease-in-out, text-shadow .2s ease-in-out;
+}
+
+.menu label.main>i {
+	font-size: 3rem;
+}
+.menu ul.main {
+	padding: 4rem 1rem 2rem;
+	transition: height .2s ease-in-out;
+}
+.menu li.has>label>i {
+	font-size: 1.71rem;
+}
+.menu ul.sub {
+	margin-left: 1rem;
+}
+.menu i.fa {
+	/* display: none; */
+}
+.menu i.material-icons {
+	/* display: none; */
+}
+
+.menu a:hover {
+	background: rgba(255,255,255,.6)
+}
+
+.menu input[type=checkbox]:checked + label>i.on,
+.menu input[type=checkbox]:not(:checked) + label i.off {
+	color: transparent;
+}
+.menu input[type=checkbox]:checked + label>i.off
+.menu input[type=checkbox]:not(:checked) + label i.on {
+	color: inherit;
+}
+.menu input[type=checkbox]:checked + label:hover i.off,
+.menu input[type=checkbox]:not(:checked) + label:hover i.on {
+	text-shadow: 1px 1px 5px rgba(0,0,0,.5);
+}
+.menu input[type=checkbox] ~ ul {
+	display: none;
+	height: auto;
+	--overflow: hidden;
+}
+.menu input[type=checkbox]:not(:checked) ~ ul {
+	display: none;
+}
+.menu input[type=checkbox]:checked ~ ul {
+	display: block;
+}
+.menu input[type=checkbox]:checked + label,
+.menu input[type=checkbox]:checked ~ ul {
+	color: inherit;
+}
+.menu li.active>a {
+	font-weight: 700;
+}
+
+#usermenu,
+#usermenu .main {
+	float: left;
+	bottom: 1rem;
+	left: 0;
+	top: auto;
+	right: auto;
+}
+#usermenu,
+#mainmenu {
+	position: fixed;
+}
+#usermenu ul.main {
+	margin: 0 0 2rem;
+	padding: 0;
+}
+
+.menu .main {
+	background: #333;
+}
+
+@media (min-width: 900px) {
+	.menu {
+		position: relative;
+		font-size: 1rem;
+		overflow: initial;
+		width: 100%;
+		width: max-content;
+		max-width: 100%;
+	}
+	.menu label.main {
+		display: none;
+	}
+	.menu ul.main,
+	.menu input[type=checkbox] ~ ul.main {
+		display: block;
+		padding: 0;
+		margin: 0 auto;
+		background: transparent;
+	}
+	.menu ul.main>li {
+		float: none;
+		display: inline-block;
+		position: static;
+		clear: none;
+		margin: 0 .1rem;
+	}
+	.menu ul.main>li>a {
+		float: none;
+		padding: .5rem 1rem;
+	}
+	.menu label.sub {
+		display: none;
+	}
+	.menu ul.sub {
+		--background: #fff;
+		margin-left: 0;
+		position: absolute;
+		box-shadow: .1rem .3rem .6rem rgba(0,0,0,.5);
+		width: 10rem;
+	}
+	.menu ul.sub>li.has {
+
+	}
+	.menu ul.sub>li>ul.sub {
+		margin-left: 10rem;
+	}
+	#usermenu,
+	.menu.right {
+		float: right;
+	}
+	.menu.right ul.sub,
+	.menu ul.sub.right {
+		margin-left: -5rem;
+	}
+	.menu.right ul.sub>li>ul.sub,
+	.menu ul.sub>li>ul.sub.right {
+		margin-left: -10rem;
+	}
+	.menu ul.sub>li>a {
+		padding: .5rem 1rem;
+	}
+	.menu li.has:hover {
+		
+	}
+	.menu li.has:hover>ul,
+	.menu li.has>a:hover ~ ul {
+		display: block;
+	}
+	.menu li.image>a {
+		padding: 0 .1rem !important;
+		border: none;
+	}
+	.menu li.image>a:hover {
+		background: transparent;
+	}
+	.menu li.image>a>img {
+		margin: -.12rem 0;
+		height: 1rem;
+		width: auto;
+	}
+	#usermenu,
+	#mainmenu {
+		position: initial;
+	}
+	#usermenu,
+	#usermenu .main {
+		bottom: 0;
+	}
+	#usermenu ul.main {
+		margin: 0;
+	}
+}
+
+@media (min-width: 1200px) {
+	.menu {
+		font-size: 1.2rem;
+	}
+}
