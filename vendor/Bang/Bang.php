@@ -107,9 +107,9 @@ abstract class Bang {
 		$controllerName = $className.'Controller';
 		$this->controller = new $controllerName($className);
 		if (!$this->controller->model)
-			$this->controller->model($className);
+			$this->controller->_model($className);
 		if (!$this->controller->view)
-			$this->controller->view();
+			$this->controller->_view();
 		return true;
 	}
 
@@ -127,7 +127,7 @@ abstract class Bang {
 			$depthMethod = '';
 			$foundMethod = '';
 			foreach ($methods as $k => $v) {
-				$depthMethod .= $v;
+				$depthMethod .= Format::method($v);
 				if (method_exists($this->controller, $depthMethod)) {
 					$foundMethod = $depthMethod;
 					$slice = $k;

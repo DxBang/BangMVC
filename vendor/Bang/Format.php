@@ -24,7 +24,7 @@ class Format {
 			'Ý'=>'Y',
 			'ý'=>'y', 'ÿ'=>'y',
 			'Þ'=>'B',
-			'þ'=>'b', 
+			'þ'=>'b',
 			'Š'=>'S', 'š'=>'s',
 			'Ž'=>'Z', 'ž'=>'z',
 		];
@@ -186,7 +186,7 @@ class Format {
 			case 'sub':
 
 			break;
-			
+
 			default:
 				$plus = 0;
 			break;
@@ -303,6 +303,9 @@ class Format {
 			return urlencode($tag);
 		}
 		return $tag;
+	}
+	static function method(string $method):string {
+		return preg_replace('/[^a-z0-9]+/S', '', self::toLower($method));
 	}
 	static function host(string $host):string {
 		$host = self::toLower($host);

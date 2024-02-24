@@ -13,7 +13,7 @@ abstract class Controller {
 		}
 		self::$instance = true;
 	}
-	function model(string $model) {
+	function _model(string $model) {
 		$models = SITE_PRIVATE.'/models';
 		if (Core::isAPI()) {
 			$models .= '/api';
@@ -30,15 +30,24 @@ abstract class Controller {
 		$modelName = $model.'Model';
 		$this->model = new $modelName();
 	}
-	function view() {
+	function _view() {
 		$this->view = new View();
-		$this->view->model = &$this->model;
+		#$this->view->model = &$this->model;
+		foreach (get_object_vars($this) as $k => &$v) {
+			if ($k == 'view') continue;
+			$this->view->{$k} = $v;
+		}
 		$this->view->uri = Core::URI(-1);
 		$this->view->urn = Core::URN();
 		$this->view->token = Visitor::token();
 		$this->view->host = Core::host();
 		$this->view->domain = Core::domain();
 		$this->view->subdomain = Core::subdomain();
+	}
+	function render(string $view) {
+		if ($this->view) {
+			return $this->view->render($view);
+		}
 	}
 	/*
 	function exception($e) {
