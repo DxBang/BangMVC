@@ -118,12 +118,14 @@ class Minify {
 	static function js(string $s) {
 		return preg_replace(
 			[
+				'/\/\/.+$/m',
 				'/\/\*([\s\S]*?)\*\//s',
 				'/[\s\n\r\t]+/s',
 				'/\s?([=<>!?:&|,;\{\}\(\)\[\]])\s?/s',
 				'/;(\})/s',
 			],
 			[
+				'',
 				'',
 				' ',
 				'$1',
