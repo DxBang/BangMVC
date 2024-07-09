@@ -232,7 +232,7 @@ final class Core {
 	}
 	static function isHost(string $url) {
 		if (!self::isURL($url)) return;
-		
+
 	}
 	static function isDomain(string $url) {
 		if (!self::isURL($url)) return;
