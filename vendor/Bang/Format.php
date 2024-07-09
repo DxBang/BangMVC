@@ -172,10 +172,16 @@ class Format {
 	static function decode($text) {
 		return html_entity_decode(urldecode($text), ENT_HTML5, 'UTF-8');
 	}
+	static function encode($text) {
+		return urlencode(htmlentities($text, ENT_HTML5, 'UTF-8'));
+	}
+	static function badPunctuation($text) {
+		return preg_replace('/\s+([,\.])/', '$1', $text);
+	}
 	static function ascii($text) {
 		return trim(
 			preg_replace(
-				'/[^a-z0-9\s]+/Si',
+				'/[^\x20-\x7E]/u',
 				' ',
 				self::accent($text)
 			),
