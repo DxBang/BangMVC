@@ -187,6 +187,9 @@ class Format {
 			),
 		' ');
 	}
+	static function nonPrintable($text) {
+		return preg_replace('/[[:^print:]]/', '', $text);
+	}
 	static function text($text, bool $forceHtml = true, bool $allowLines = false) {
 		if (!is_string($text)) return;
 		if ($forceHtml) {
