@@ -81,12 +81,21 @@ class Menu {
 			}
 		}
 		$dropId = self::_dropId();
-		return !empty($r) ? '<nav class="'.self::$format->nav_class.'" id="'.self::$format->nav_id.'"'.self::schema('nav').' aria-label="navigation">'
-			.'<input type="checkbox" class="'.self::$format->input_checkbox_class.'" id="'.$dropId.'">'
-			.'<label for="'.$dropId.'" class="'.self::$format->main_label_class.'">'
+		return !empty($r) ? '<nav'
+			.(!empty(self::$format->nav_class) ? ' class="'.self::$format->nav_class.'"' : '')
+			.' id="'.self::$format->nav_id.'"'.self::schema('nav').' aria-label="navigation">'
+			.'<input type="checkbox"'
+			.(!empty(self::$format->input_checkbox_class) ? ' class="'.self::$format->input_checkbox_class.'"' : '')
+
+			.' id="'.$dropId.'">'
+			.'<label for="'.$dropId.'"'
+			.(!empty(self::$format->main_label_class) ? ' class="'.self::$format->main_label_class.'"' : '')
+			.'>'
 				.self::$format->main_label
 			.'</label>'
-			.'<ul class="'.self::$format->main_class.'">'.$r.'</ul></nav>' : '';
+			.'<ul'
+			.(!empty(self::$format->main_class) ? ' class="'.self::$format->main_class.'"' : '')
+			.'>'.$r.'</ul></nav>' : '';
 	}
 	private static function _menuBlock(object $menus, int $depth = 0) {
 		$r = '';
@@ -95,6 +104,9 @@ class Menu {
 				$r .= self::_menuItem($uri, $menu, $depth);
 			}
 		}
+		return ($r) ? '<ul'
+			.(!empty(self::$format->sub_class) ? ' class="'.self::$format->sub_class.'"' : '')
+			.'>'.$r.'</ul>' : '';
 		return ($r) ? '<ul class="'.self::$format->sub_class.'">'.$r.'</ul>' : '';
 	}
 	private static function _menuActived(string $uri) {
