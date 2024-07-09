@@ -477,5 +477,5 @@ class WebPreX {
 			$r .= '<link rel="'.$rel.'" href="'.$url.'"/>'.PHP_EOL;
 		}
 		return $r;
-	}	
+	}
 }
