@@ -1,5 +1,6 @@
 <?php
 namespace Bang\Chain;
+use \Bang\Core;
 
 class Model {
 	protected
@@ -43,11 +44,31 @@ class Model {
 		if (isset($data['limit']) && $data['limit'] === 1) return $this->fetch();
 		return $this->statement;
 	}
-	function put(string $query, array $data) {
 
+	function add(string $query, array $data, string $id = null) {
+		return $this->update($query, $data, $id);
 	}
-	function add(string $query, array $data) {
-
+	function set(string $query, array $data) {
+		return $this->update($query, $data);
+	}
+	function rem(string $query, array $data) {
+		return $this->update($query, $data);
+	}
+	function update(string $query, array $data, string $id = null) {
+		try {
+			$this
+				->query($query)
+				->data($data);
+			if (!empty($id))
+				return $this
+					->insertId($id);
+			return $this
+				->statement
+				->rowCount();
+		}
+		catch (\Exception $e) {
+			return $e->getMessage();
+		}
 	}
 
 	function query(string $query) {
@@ -67,7 +88,7 @@ class Model {
 	function insertId(string $name) {
 		return $this->pdo->lastInsertId($name);
 	}
-	
+
     function debug() {
 		return $this->statement->debugDumpParams();
     }
