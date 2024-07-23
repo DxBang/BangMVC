@@ -91,12 +91,6 @@
 .menu ul.sub {
 	margin-left: 1rem;
 }
-.menu i.fa {
-	/* display: none; */
-}
-.menu i.material-icons {
-	/* display: none; */
-}
 
 .menu a:hover {
 	background: rgba(255,255,255,.6)
@@ -194,9 +188,7 @@
 		box-shadow: .1rem .3rem .6rem rgba(0,0,0,.5);
 		width: 10rem;
 	}
-	.menu ul.sub>li.has {
 
-	}
 	.menu ul.sub>li>ul.sub {
 		margin-left: 10rem;
 	}
@@ -215,9 +207,7 @@
 	.menu ul.sub>li>a {
 		padding: .5rem 1rem;
 	}
-	.menu li.has:hover {
-		
-	}
+
 	.menu li.has:hover>ul,
 	.menu li.has>a:hover ~ ul {
 		display: block;
